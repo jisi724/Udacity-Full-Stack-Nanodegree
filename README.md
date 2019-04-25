@@ -1,7 +1,12 @@
-# UC_FSNano_5_Neighborhood_APP
+# Project 5 - Neighborhood APP (React)
+
+_[Live Site](https://neighborhood-map-q9vqocitb.now.sh/)_
+
 Udacity full-stack nano degree project 5 --- Neighborhood APP (React)
 
-_This react-based project shows you the sushi restaurants in Vancouver, BC, Canada. View it [here](https://udacity-neighborhood-app-f20dd.firebaseapp.com/)_
+_This react-based project shows you the sushi restaurants in Vancouver, BC, Canada._
+
+_This project also has a Knockout version, see [here](https://github.com/jisi724/Udacity-Full-Stack-Nanodegree/tree/5-Neighbour-Map-Knockout)_
 
 ## How to build this app in your own environment?
 - clone / download this repo
@@ -19,4 +24,5 @@ This project uses following tools and data:
 - **PostCSS**: This project uses [PostCSS](https://github.com/postcss/postcss) and some plugins of it to transform style with Javascript. It allows you to use future CSS features for all browsers.
 - **Reacr Map GL**: The [Mapbox](https://www.mapbox.com/) API was used in this project through a React wrapper [react-map-gl](https://github.com/uber/react-map-gl)
 - **Zomato API**: The data scource is coming from [zomato.com](https://www.zomato.com/vancouver), check their restful API [here](https://developers.zomato.com/api)
-- **Firebase**: Google Firebase is used to host this app on https://udacity-neighborhood-app-f20dd.firebaseapp.com/
+- ~~**Firebase**: Google Firebase is used to host this app on https://udacity-neighborhood-app-f20dd.firebaseapp.com/~~
+- **Now**: [Zepit Now Deployment](https://zeit.co/now) is used to deploy and host this app on https://neighborhood-map-q9vqocitb.now.sh/
