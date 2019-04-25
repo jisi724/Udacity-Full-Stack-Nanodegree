@@ -1,4 +1,4 @@
-# UC_FSNano_3_Log_Analysis
+# Project 3 Log Analysis
 Udacity full-stack nano degree project 3 --- Log Analysis
 
 ## Before you start
