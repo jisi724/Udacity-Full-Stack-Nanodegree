@@ -1,9 +1,9 @@
-# UC_FSNano_5_Neighborhood_APP - Knockout Version
+# Project 5 - Neighborhood APP (Knockout) Version [Live Site](https://neighborhood-map-knockout-78nql2ivc.now.sh/)
 Udacity full-stack nano degree project 5 --- Neighborhood APP (Knockout)
 
-_This react-based project shows you the sushi restaurants in Vancouver, BC, Canada. View it [here](https://neighborhood-map-knockout-78nql2ivc.now.sh/)_
+_This react-based project shows you the sushi restaurants in Vancouver, BC, Canada._
 
-_This project also has a React version, see [here](https://github.com/jisi724/UC_FSNano_5_Neighborhood_Map_React)_
+_This project also has a React version, see [here](https://github.com/jisi724/Udacity-Full-Stack-Nanodegree/tree/5-Neighbour-Map-React)_
 
 ## How to build this app in your own environment?
 - clone / download this repo
