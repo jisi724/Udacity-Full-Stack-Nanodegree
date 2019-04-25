@@ -2,7 +2,7 @@
 
 ### About
 
-I took the [Udacity Full Stack Developer Nanodegree](https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd004) on June 2018
+I took the [Udacity Full Stack Developer Nanodegree](https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd004) on Oct 2018
 This repo has all 6 projects I've done for this program in separate branches.
 
 - 1 - [**Movie Library**](https://github.com/jisi724/Udacity-Full-Stack-Nanodegree/tree/1-Moive-Library) (Python)
@@ -15,4 +15,4 @@ This repo has all 6 projects I've done for this program in separate branches.
 
 
 ### Certificate
-[![Certificate](udacity-fsnd-certificate.png)](https://confirm.udacity.com/GUJR2DRR)
+[![Certificate](certificate.png)](https://confirm.udacity.com/GUJR2DRR)
