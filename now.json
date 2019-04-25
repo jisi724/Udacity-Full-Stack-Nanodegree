@@ -1,0 +1,12 @@
+{
+  "name": "neighborhood-map-knockout",
+  "version": 2,
+  "builds": [
+    { "src": "package.json", "use": "@now/static-build" }
+  ],
+  "routes": [
+    {"src": "^/src/assets/(.*)", "dest": "/src/assets/$1"},
+    {"src": "^/bundle.js", "dest": "/bundle.js"},
+    {"src": "^/(.*)", "dest": "/index.html"}
+  ]
+}

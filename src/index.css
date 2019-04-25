@@ -1,0 +1,173 @@
+/*@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,700');*/
+@import './lib/base.css';
+@import 'mapbox-gl/dist/mapbox-gl.css';
+
+#app {
+  & .menu {
+    width: 250px;
+    height: calc(100% - 20px);
+    position: absolute;
+    top: 0;
+    padding: 10px;
+    z-index: 10;
+    background: white;
+    transition: transform 0.7s ease;
+    will-change: transform;
+
+    &-heading {
+      text-align: right;
+      height: 110px;
+
+      & h4 {
+        font-style: italic;
+        margin-top: 10px;
+      }
+    }
+
+    &-filter {
+      position: relative;
+      margin-top: 15px;
+
+      & input {
+        width: calc(100% - 28px);
+        height: 24px;
+        padding: 0 23px 0 5px;
+        border: 1px #666666 solid;
+        color: #666666;
+        font-size: 15px;
+        border-radius: 5px;
+
+        &:focus {
+          outline:none;
+        }
+      }
+
+      & img {
+        width: 18px;
+        position: absolute;
+        top: 5px;
+        right: 2px;
+      }
+    }
+
+
+    &-list {
+      margin-top: 20px;
+      height: calc(100% - 160px);
+      overflow: auto;
+
+      &-item {
+        border: 1px solid #999999;
+        border-radius: 3px;
+        margin-bottom: 10px;
+        padding: 7px 0 7px 5px;
+        cursor: pointer;
+
+        &.selected {
+          background: #666666;
+          color: white;
+
+          & h5 {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+
+    &-toggle {
+      width: 30px;
+      background: white;
+      position: absolute;
+      top: 10px;
+      right: -30px;
+      cursor: pointer;
+
+      & img {
+        width: 100%;
+      }
+    }
+  }
+
+  & .map {
+    & #mapContainer {
+      width: 100%;
+      height: 100vh;
+    }
+    
+    &-nav {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 10px;    
+    }
+
+    &-marker {
+      width: 20px;
+      cursor: pointer;
+    }
+
+    &-popup {
+      width: 200px;
+      margin-top: 10px;
+
+      &-header {
+        width: 100%;
+        height: 80px;
+        background-size: cover;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+
+        &::before {
+          content: '';
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: #111111;
+          opacity: 0.5;
+        }
+
+        &>div {
+          margin: 10px;
+          color: white;
+          z-index: 10;
+          position: relative;
+
+          & h4 {
+            font-weight: 500;
+            margin-bottom: 5px;
+          }
+        }
+      }
+
+      &-info {
+        margin-top: 10px;
+        &>div {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
+
+          & .label {
+            font-weight: 500;
+            color: #333333;
+          }
+
+          & .value {
+            text-align: right
+          }
+
+          & a {
+            font-size: 14px;
+            color: #333333;
+            font-weight: 500;
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+}
