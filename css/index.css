@@ -1,0 +1,232 @@
+@import url("./base.css");
+
+/* Body Style */
+body {
+  display: flex;
+  justify-content: space-between;
+  max-width: 144rem;
+  margin: 0 12rem 10rem;
+  color: #2d3c49;
+  background-color: #ffffff;
+}
+
+@media only screen and (max-width: 900px) {
+  body {
+    margin: 0 6rem 10rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    margin: 0 2rem;
+  }
+}
+
+/* Aside Color Section */
+aside.color-palette {
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+  margin-top: 20rem;
+}
+
+@media only screen and (max-width: 900px) {
+  aside.color-palette {
+    display: none;
+  }
+}
+
+aside.color-palette .color-wrapper {
+  width: 100%;
+}
+
+aside.color-palette .color-wrapper .color {
+  width: 100%;
+  padding-bottom: 100%;
+}
+
+aside.color-palette .color-wrapper .color-1 {
+  background-color: #02b3e4;
+}
+
+aside.color-palette .color-wrapper .color-2 {
+  background-color: #2d3c49;
+}
+
+aside.color-palette .color-wrapper .color-3 {
+  background-color: #7d97ad;
+}
+
+aside.color-palette .color-wrapper .color-code {
+  float: right;
+  margin: 0 0 5rem;
+  font-weight: 100;
+  color: #000000;
+}
+
+/* Main Section */
+main {
+  width: 80%;
+}
+
+@media only screen and (max-width: 900px) {
+  main {
+    width: 100%;
+  }
+}
+
+/* Main Section - Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 20rem;
+  border-bottom: 3px solid #8196aa;
+  text-transform: uppercase;
+}
+
+.header-logo {
+  width: 10rem;
+}
+
+@media only screen and (max-width: 900px) {
+  .header-author {
+    text-align: right;
+  }
+}
+
+.header-author-name {
+  font-weight: 100;
+}
+
+/* Main Section - Self Intro */
+.self-intro {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: calc(100vh - 30rem);
+}
+
+@media only screen and (max-width: 900px) {
+  .self-intro {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+.self-intro .avatar {
+  width: 25rem;
+  height: 25rem;
+  background-size: cover;
+  background-position: 50%;
+  border-radius: 50%;
+  background-image: url('../img/avatar.jpeg');
+}
+
+@media only screen and (max-width: 900px) {
+  .self-intro .avatar {
+    width: 17rem;
+    height: 17rem;
+    margin: 3rem 0;
+  }
+}
+
+.self-intro .bio {
+  width: 50%;
+  padding: 0 1rem;
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+@media only screen and (max-width: 900px) {
+  .self-intro .bio {
+    width: 85%;
+  }
+}
+
+/* Main Section - Featured Work */
+.featured-work {
+  color: #8196aa;
+}
+
+.featured-work-cards {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+@media only screen and (max-width: 900px) {
+  .featured-work-cards {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+.featured-work-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25rem;
+  text-align: center;
+}
+
+@media only screen and (max-width: 900px) {
+  .featured-work-card {
+    width: 80%;
+    align-items: center;
+    margin-bottom: 5rem;
+  }
+}
+
+
+.featured-work-card .card-image {
+  width: 100%;
+  height: 15rem;
+  background-size: cover;
+  background-position: 50%;
+}
+
+@media only screen and (max-width: 900px) {
+  .featured-work-card .card-image {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .featured-work-card .card-image {
+    width: 80%;
+  }
+}
+
+.featured-work-card .card-image-1 {
+  background-image: url("../img/feature-1-backbone.png");
+}
+
+.featured-work-card .card-image-2 {
+  background-image: url("../img/feature-2-pixi.jpg");
+}
+
+.featured-work-card .card-image-3 {
+  background-image: url("../img/feature-3-VuePress.png");
+}
+
+.featured-work-card .card-title {
+  display: flex;
+  align-items: center;
+  height: 6rem; 
+  margin: 3rem 0 1rem;
+  color: #2d3c49;
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 900px) {
+  .featured-work-card .card-title {
+    height: auto;
+  }
+}
+
+.featured-work-card .card-url {
+  width: 100%;
+  font-size: 1.2rem;
+  color: inherit;
+}
