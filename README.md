@@ -1,4 +1,4 @@
-# UC_FSNano_2_portfolio
+# Project 2 - Portfolio
 Udacity full-stack nano degree assignment 2
 
 ## How to start?
