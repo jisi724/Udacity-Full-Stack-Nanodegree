@@ -1,4 +1,7 @@
-# Project 5 - Neighborhood APP (Knockout) Version [Live Site](https://neighborhood-map-knockout-78nql2ivc.now.sh/)
+# Project 5 - Neighborhood APP (Knockout)
+
+_[Live Site](https://neighborhood-map-knockout-78nql2ivc.now.sh/)_
+
 Udacity full-stack nano degree project 5 --- Neighborhood APP (Knockout)
 
 _This react-based project shows you the sushi restaurants in Vancouver, BC, Canada._
