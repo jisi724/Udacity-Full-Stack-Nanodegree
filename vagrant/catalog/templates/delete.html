@@ -1,0 +1,31 @@
+{% extends "core/base.html" %}
+{% block title %}Catalog App{% endblock %}
+
+{% block content %}
+    <a href="{{ back }}" class="ui animated button goBack" tabindex="0">
+        <div class="hidden content">Back</div>
+        <div class="visible content"><i class="arrow left icon"></i></div>
+    </a>
+
+    {% if permission %}
+    <div class="delete ui grid">
+      <div class="c-card delete-wrapper">
+          <h2>DELETE ITEM</h2>
+
+          <form class="ui form" action="{{ url_for('item_delete', category_id = item.category_id, item_id = item.id) }}" method = 'post'>
+            <h4>Are you sure you want to delete item "{{ item.title }}"?</h4>
+            <a href="{{ back }}" class="ui button">Go Back</a>
+            <button class="ui red button" type="submit">Delete</button>
+          </form>
+
+      </div>
+    </div>
+
+    {% else %}
+
+      <h3>You don't have permission to view this page!</h3>
+      
+    {% endif %}
+
+
+{% endblock %}

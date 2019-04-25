@@ -1,0 +1,45 @@
+{% extends "core/base.html" %}
+{% block title %}Catalog App{% endblock %}
+
+{% block content %}
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+      <div class="ui info message">
+          <i class="close icon"></i>
+          <div class="header">{{ messages[0] }}</div>
+      </div>
+
+      <script>
+          $('.message .close').on('click', function() {
+              $(this).closest('.message').transition('fade');
+          });
+      </script>
+  {% endif %}
+  {% endwith %}
+
+  <div class="home ui grid">
+
+    <div class="twelve wide column">
+      <h3>Categories</h3>
+      <div class="home-category ui link list">
+        {% for category in categories %}
+          <a href="/category/{{ category.id }}"><h1>{{ category.title }}</h1></a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="four wide column">  
+      <h3>Latest Items</h3>
+      <div class="home-items">
+          {% for item in items %}
+          <div class="home-item">
+              <a href="/category/{{ item[0].category_id }}/item/{{ item[0].id }}"><strong>{{ item[0].title }}</strong> ({{ item[1].title }})</a>
+              <p> by {{ item[2].username }} at {{ item[0].create_date.strftime('%Y-%m-%d') }}</p>
+          </div>
+          {% endfor %}
+        </div>
+    </div>
+
+  </div>
+{% endblock %}

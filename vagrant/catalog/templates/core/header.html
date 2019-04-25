@@ -1,0 +1,62 @@
+<header>
+  <div class="header-user">
+    {% if session['username'] | length %}
+      <img class="ui medium circular image" src="{{ session['picture'] }}" alt="User Avatar">
+      <div class="user-info">
+        {{ session['username'] }}
+        <a id="signoutButton" href="/gdisconnect">Sign out</a>
+      </div>
+    {% else %}
+      <button id="signinButton" class="ui google plus button">
+        <i class="google plus icon"></i>
+        Sign In
+      </button>
+    {% endif %}
+  </div>
+  <a href="/"><h2>Catalog App</h2></a>
+</header>
+
+<script>
+  $('#signinButton').click(function() {
+    auth2.grantOfflineAccess().then(signInCallback);
+  });
+
+  function start () {
+    gapi.load('auth2', function() {
+      auth2 = gapi.auth2.init({
+        client_id: '496837828563-sa0ee9rl6bkeb000q5m41iufntpnb3ng.apps.googleusercontent.com',
+        scope: 'openid',
+        redirecturi: '/',
+        accesstype: 'offline',
+        cookiepolicy: 'single_host_origin',
+        approvalprompt: 'force'
+      });
+    });
+  }
+
+  function signInCallback(authResult) {
+    console.log(authResult['code']);
+  
+    if (authResult['code']) {  
+      $('#signinButton').attr('style', 'display: none');
+      $.ajax({
+        type: 'POST',
+        url: '/gconnect?state={{ state }}',
+        processData: false,
+        data: authResult['code'],
+        contentType: 'application/octet-stream; charset=utf-8',
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        },
+        success: function(result) {
+          if (result) {
+            console.log(result);
+            $('.header-user').html(result);
+          } else {
+            console.log('Failed to make a server-side call. Check your configuration and console.');
+          }
+        }
+      }); 
+    }
+  }
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="google-signin-client_id" content="496837828563-ep7huhdst7eqc96blih0t7dhubg5rtr5.apps.googleusercontent.com">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/static/lib/semantic.min.css">
+    <link rel="stylesheet" href="/static/lib/base.css">
+    <link rel="stylesheet" href="/static/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+    <script src="/static/index.js"></script>
+    <script src="/static/lib/semantic.min.js"></script>
+  </head>
+
+  <body>
+    {% include 'core/header.html' %}
+
+    {% block header %}
+    {% endblock %}
+
+    <section id="app">
+        {% block content %}
+        {% endblock %}
+    </section>
+  </body>
+</html>

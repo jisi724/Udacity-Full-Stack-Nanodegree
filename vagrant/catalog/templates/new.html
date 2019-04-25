@@ -1,0 +1,44 @@
+{% extends "core/base.html" %}
+{% block title %}Catalog App{% endblock %}
+
+{% block content %}
+    <a href="{{ back }}" class="ui animated button goBack" tabindex="0">
+        <div class="hidden content">Back</div>
+        <div class="visible content"><i class="arrow left icon"></i></div>
+    </a>
+
+    <div class="new ui grid">
+      <div class="c-card new-wrapper">
+          <h2 class="item-title">New ITEM</h2>
+
+          <form class="ui form" action="{{ url_for('item_add') }}" method = 'post'>
+            <div class="field">
+              <label>Item Title</label>
+              <input type="text" name="item-title" placeholder="Item Title" required>
+            </div>
+            <div class="field">
+              <label>Item Description</label>
+              <textarea rows="3" name="item-desc" placeholder="Item Description" required></textarea>
+            </div>
+            <div class="field">
+              <label>Catgory</label>
+              <div class="ui selection dropdown">
+                <input type="hidden" name="item-category">
+                <i class="dropdown icon"></i>
+                <div class="default text">Catgory</div>
+                <div class="menu">
+                  {% for category in categories %}
+                    <div class="item" data-value="{{ category.id }}">{{ category.title }}</div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+            <button class="ui button green" type="submit">Create</button>
+          </form>
+      </div>
+    </div>
+
+    <script>
+      $('.ui.dropdown').dropdown('set selected', 2);
+    </script>
+{% endblock %}

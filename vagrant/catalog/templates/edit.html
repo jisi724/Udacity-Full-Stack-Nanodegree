@@ -1,0 +1,53 @@
+{% extends "core/base.html" %}
+{% block title %}Catalog App{% endblock %}
+
+{% block content %}
+    <a href="{{ back }}" class="ui animated button goBack" tabindex="0">
+        <div class="hidden content">Back</div>
+        <div class="visible content"><i class="arrow left icon"></i></div>
+    </a>
+
+    {% if permission %}
+    <div class="edit ui grid">
+      <div class="c-card edit-wrapper">
+          <h2 class="item-title">EDIT ITEM</h2>
+
+          <form class="ui form" action="{{ url_for('item_edit', category_id = item.category_id, item_id = item.id) }}" method = 'post'>
+            <div class="field">
+              <label>Item Title</label>
+              <input type="text" name="item-title" placeholder="Item Title" value="{{ item.title }}" required>
+            </div>
+            <div class="field">
+              <label>Item Description</label>
+              <textarea rows="3" name="item-desc" placeholder="Item Description" required>{{ item.desc }}</textarea>
+            </div>
+            <div class="field">
+              <label>Catgory</label>
+              <div class="ui selection dropdown">
+                <input type="hidden" name="item-category">
+                <i class="dropdown icon"></i>
+                <div class="default text">Catgory</div>
+                <div class="menu">
+                  {% for category in categories %}
+                    <div class="item" data-value="{{ category.id }}">{{ category.title }}</div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+            <button class="ui button" type="submit">Submit</button>
+          </form>
+      </div>
+    </div>
+
+    <script>
+      $('.ui.dropdown').dropdown('set selected', {{ item.category_id }});
+    </script>
+
+    {% else %}
+
+      <h3>You don't have permission to view this page!</h3>
+      
+    {% endif %}
+
+
+{% endblock %}

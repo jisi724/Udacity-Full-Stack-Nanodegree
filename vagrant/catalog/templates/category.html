@@ -1,0 +1,91 @@
+{% extends "core/base.html" %}
+{% block title %}Catalog App{% endblock %}
+
+{% block content %}
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+      <div class="ui info message">
+          <i class="close icon"></i>
+          <div class="header">{{ messages[0] }}</div>
+      </div>
+
+      <script>
+          $('.message .close').on('click', function() {
+              $(this).closest('.message').transition('fade');
+          });
+      </script>
+  {% endif %}
+  {% endwith %}
+
+  <a href="{{ back }}" class="ui animated button goBack" tabindex="0">
+    <div class="hidden content">Back</div>
+    <div class="visible content"><i class="arrow left icon"></i></div>
+  </a>
+
+  <div class="category ui grid">
+
+  {% if items | length %}
+  
+    <div class="twelve wide column">
+      <h1>{{ category.title }}</h1>
+      {% if session['user_id'] %}
+        <a href="/item/new" class="ui vertical animated button green new" tabindex="0">
+          <div class="hidden content">New</div>
+          <div class="visible content"><i class="plus circle icon"></i></div>
+        </a>
+      {% endif %}
+      <div class="category-items ui link list">
+        {% for item in items %}
+          <div class="category-item">
+            <div class="item-info">
+                <a href="/category/{{ category.id }}/item/{{ item[0].id }}"><h3>{{ item[0].title }}</h3></a>
+                <div>
+                  <img class="ui small circular image" src="{{ item[1].avatar }}" alt="">
+                  <h5>{{ item[1].username }} - {{ item[0].create_date.strftime('%Y/%m/%d') }}</h5>
+                </div>
+            </div>
+
+            {% if item[0].user_id == session['user_id'] %}
+              <div class="item-operation">
+                  <a href="/category/{{ category.id }}/item/{{ item[0].id }}/edit" class="ui vertical animated button blue" tabindex="0">
+                      <div class="hidden content">Edit</div>
+                      <div class="visible content"><i class="edit icon"></i></div>
+                  </a>
+
+                  <a href="/category/{{ category.id }}/item/{{ item[0].id }}/delete" class="ui vertical animated button  red" tabindex="0">
+                      <div class="hidden content">Delete</div>
+                      <div class="visible content"><i class="times icon"></i></div>
+                  </a>
+              </div>
+            {% endif %}
+
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+  {% else %}
+
+    <h2 class="twelve wide column warning">
+      There's nothing under this category yet.
+      <br>
+      Please add the first item <a href="/item/new">HERE</a>
+    </h2>
+    
+  {% endif %}
+
+
+    <div class="four wide column">
+      <h4>More Categories</h4>
+      <div class="category-more">
+        {% for category_item in categories %}
+          <a href="/category/{{ category_item.id }}" 
+            class="{% if category_item.id == category.id %}highlight{% endif %}">
+            {{ category_item.title }}
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

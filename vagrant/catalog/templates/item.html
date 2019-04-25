@@ -1,0 +1,51 @@
+{% extends "core/base.html" %}
+{% block title %}Catalog App{% endblock %}
+
+{% block content %}
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="ui info message">
+                <i class="close icon"></i>
+                <div class="header">{{ messages[0] }}</div>
+            </div>
+
+            <script>
+                $('.message .close').on('click', function() {
+                    $(this).closest('.message').transition('fade');
+                });
+            </script>
+        {% endif %}
+    {% endwith %}
+
+    <a href="{{ back }}" class="ui animated button goBack" tabindex="0">
+        <div class="hidden content">Back</div>
+        <div class="visible content"><i class="arrow left icon"></i></div>
+    </a>
+
+    <div class="item ui grid">
+        <div class="c-card item-wrapper">
+            <h2 class="item-title">{{ item.title }}</h2>
+            <div class="item-info">
+                <h5>{{ category.title }}</h5>
+                <h5>{{ item.create_date.strftime('%Y-%m-%d') }}</h5>
+            </div>
+            <h5 class="item-desc-title">Description: </h5>
+            <h5 class="item-desc">{{ item.desc }}</h5>
+        </div>
+
+        {% if item.user_id == session['user_id'] %}
+        <div class="item-operation">
+            <a href="/category/{{ category.id }}/item/{{ item.id }}/edit" class="ui vertical animated button blue" tabindex="0">
+                <div class="hidden content">Edit</div>
+                <div class="visible content"><i class="edit icon"></i></div>
+            </a>
+
+            <a href="/category/{{ category.id }}/item/{{ item.id }}/delete" class="ui vertical animated button  red" tabindex="0">
+                <div class="hidden content">Delete</div>
+                <div class="visible content"><i class="times icon"></i></div>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}
